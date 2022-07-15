@@ -1,11 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+
+	transportHTTP "github.com/yousafshah1214/go-comments-microservice/internal/transport/http"
+)
 
 type App struct{}
 
 func (app *App) Run() error {
 	fmt.Println("Setting up our App")
+	handler := transportHTTP.NewHandler()
+	handler.SetupRoutes()
 	return nil
 }
 
